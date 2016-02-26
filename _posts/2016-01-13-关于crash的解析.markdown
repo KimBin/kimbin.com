@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "关于crash的解析"
+date:   2016-01-13 00:41:15 +0800
+categories: jekyll update
+---
+1. 下载.ipa格式的包  进入文件目录
+unzip shuqireader_build196.ipa   可以解压缩到 bundle格式的
+
+用xcode自带的执行文件  例如windows下的exe 编译程序   crash文件   .dsym文件  然后定向输出就行了。
+
+
+然后 ./symbolicatecrash crash11.30.crash shuqireader_build196.app.dSYM >a.txt
+
+
+在执行 这一步的时候 还有的提示  exprot 路径要设置
+
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+
+
+
+export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer" 
+
+run this command ./symbolicatecrash -A -v CrashFile.crash  YourApp.app.dSYM
+
+
+方便在任意路径下调用
+首先在termail下，输入find /Applications/Xcode.app -name symbolicatecrash -type f，用来查找symbolicatecrash的真实位置，
