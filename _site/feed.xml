@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kimbin的博客</title>
-    <description>人生充满苦难，自律消除人生苦难
-</description>
+    <title>JinBin Blog</title>
+    <description>iOS &amp; Mac OS 高级工程师</description>
     <link>http://kimbin.github.io/</link>
-    <atom:link href="http://kimbin.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Apr 2016 07:46:06 +0800</pubDate>
-    <lastBuildDate>Wed, 06 Apr 2016 07:46:06 +0800</lastBuildDate>
+    <atom:link href="http://kimbin.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 06 Apr 2016 15:41:31 +0800</pubDate>
+    <lastBuildDate>Wed, 06 Apr 2016 15:41:31 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -39,8 +38,8 @@
 &lt;p&gt;“零地带”这个术语可以追溯到 1945 年广岛和长崎遭受原子弹袭击的历史时刻。&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 13:10:15 +0800</pubDate>
-        <link>http://kimbin.github.io/jekyll/update/2016/02/10/%E8%8B%B1%E8%AF%AD%E5%BF%85%E8%83%8C%E5%8F%A5%E5%9E%8B.html</link>
-        <guid isPermaLink="true">http://kimbin.github.io/jekyll/update/2016/02/10/%E8%8B%B1%E8%AF%AD%E5%BF%85%E8%83%8C%E5%8F%A5%E5%9E%8B.html</guid>
+        <link>http://kimbin.github.io/jekyll/update/2016/02/10/%E8%8B%B1%E8%AF%AD%E5%BF%85%E8%83%8C%E5%8F%A5%E5%9E%8B/</link>
+        <guid isPermaLink="true">http://kimbin.github.io/jekyll/update/2016/02/10/%E8%8B%B1%E8%AF%AD%E5%BF%85%E8%83%8C%E5%8F%A5%E5%9E%8B/</guid>
         
         
         <category>jekyll</category>
@@ -72,8 +71,8 @@ unzip shuqireader_build196.ipa   可以解压缩到 bundle格式的&lt;/li&gt;
 首先在termail下，输入find /Applications/Xcode.app -name symbolicatecrash -type f，用来查找symbolicatecrash的真实位置，&lt;/p&gt;
 </description>
         <pubDate>Wed, 13 Jan 2016 00:41:15 +0800</pubDate>
-        <link>http://kimbin.github.io/jekyll/update/2016/01/13/%E5%85%B3%E4%BA%8Ecrash%E7%9A%84%E8%A7%A3%E6%9E%90.html</link>
-        <guid isPermaLink="true">http://kimbin.github.io/jekyll/update/2016/01/13/%E5%85%B3%E4%BA%8Ecrash%E7%9A%84%E8%A7%A3%E6%9E%90.html</guid>
+        <link>http://kimbin.github.io/jekyll/update/2016/01/13/%E5%85%B3%E4%BA%8Ecrash%E7%9A%84%E8%A7%A3%E6%9E%90/</link>
+        <guid isPermaLink="true">http://kimbin.github.io/jekyll/update/2016/01/13/%E5%85%B3%E4%BA%8Ecrash%E7%9A%84%E8%A7%A3%E6%9E%90/</guid>
         
         
         <category>jekyll</category>
