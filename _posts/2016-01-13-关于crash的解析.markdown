@@ -4,25 +4,77 @@ title:  "关于crash的解析"
 date:   2016-01-13 00:41:15 +0800
 categories: jekyll update
 ---
-1. 下载.ipa格式的包  进入文件目录
-unzip shuqireader_build196.ipa   可以解压缩到 bundle格式的
-
-用xcode自带的执行文件  例如windows下的exe 编译程序   crash文件   .dsym文件  然后定向输出就行了。
 
 
-然后 ./symbolicatecrash crash11.30.crash shuqireader_build196.app.dSYM >a.txt
 
+## crash解析
 
-在执行 这一步的时候 还有的提示  exprot 路径要设置
+平常开发中解析crash是非常常见的问题，一般分为两种，线上crash和开发中的carah
 
+##### 1.开发中的crash
+
+一般可以拿到发生crash的设备，利用Xcode ->DEVICES ->View Device Logs ->Export Log 可以导出
+
+XCode解析需要用到对应安装文件的符号文件，若解析的电脑没有符号文件，解析出来的会是二进制符号(测试报了bug ，但是没有提供手机)
+
+可以找到发生crash的手机，连接mac，xcode会提示，progressing symbol files，mac会自动拷取符号文件，然后在进行导出操作即可。
+
+##### 2.线上crash
+
+线上版本或者使用jenkins打包平台来进行集成测试，都可以拿到符号文件集（后缀是.dSYM）
+
+上面提到的XCode可以解析crash log 是因为XCode自带了一个解析的执行文件，例如Windows下的exe
+
+为了更加方便，把相关操作都放到一个命名为**crash1.13**文件夹里 
+
+**2.1先找到执行文件**
+
+最基本的命令行，这个执行文件肯定在 Xcode里面 所以
+
+```
+find /Applications/Xcode.app -name symbolicatecrash     //等待一小会 下面会出一个路径
+```
+
+然后finder中找到 将其拷贝到**crash1.13**文件夹里 
+
+**2.2 app的安装文件**
+
+这个都可以找到为ipa格式的文件，解析拿到app包格式的，具体可以直接解压缩，在同一个目录里
+
+```
+unzip xxxxx.ipa   可以解压缩到 bundle格式的
+```
+
+**2.3符号文件**
+
+**2.4 crash文件**
+
+这个的格式可以随意 .crash  .txt 都可以
+
+###### 解析步骤
+
+此时文件夹里应该有4个文件 
+
+> 1. symbolicatecrash执行文件
+> 2. myappcrash655.dSYM 符号文件
+> 3. crash0113.crash 文件   
+> 4. myapp.app
+
+命令行进入到当前目录
+
+```
+./symbolicatecrash crash0113.crash  myappcrash655.dSYM ->crash.txt  //将输出结果重定向到crash.txt
+```
+
+在执行 这一步的时候 有的提示  exprot 路径要设置如下，即可。
+
+```
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+```
 
+很简单，简略的crash简析 
 
+当然还有一些需要注意的问题例如：
 
-export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer" 
-
-run this command ./symbolicatecrash -A -v CrashFile.crash  YourApp.app.dSYM
-
-
-方便在任意路径下调用
-首先在termail下，输入find /Applications/Xcode.app -name symbolicatecrash -type f，用来查找symbolicatecrash的真实位置，
+> 1. .dSYM 文件要与crash文件和.app对应，可以通过查UUid来确认
+> 2. 都对应但是有些crash文件没法解析，可能是xcode升级，需要查询并使用最新的 symbolicatecrash执行文件
